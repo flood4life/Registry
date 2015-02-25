@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   root :to => redirect('catalogs')
 
-  resources :catalogs do
-    resources :products do
-      resources :reviews
-    end
+  resources :catalogs
+
+  resources :products do
+    resources :reviews
   end
+
 
 
 

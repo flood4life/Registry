@@ -15,10 +15,10 @@
     <% @reviews.each do |review| %>
       <tr>
         <td><%= review.message %></td>
-        <td><%= review.product %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= review.product.name %></td>
+        <td><%= link_to 'Show', product_review_path(@product, review) %></td>
+        <td><%= link_to 'Edit', edit_product_review_path(@product, review) %></td>
+        <td><%= link_to 'Destroy', product_review_path(@product, review), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Review', new_review_path %>
+<%= link_to 'New Review', new_product_review_path(@product) %>
