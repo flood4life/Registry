@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+  root :to => redirect('catalogs')
+
   resources :catalogs do
     resources :products do
       resources :reviews
     end
   end
 
-  root 'catalogs#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
