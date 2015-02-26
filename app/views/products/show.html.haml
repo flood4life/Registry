@@ -6,6 +6,6 @@
 
 = render 'information'
 
-= render partial: 'reviews/reviews_for_product', locals: {product: @product}
+= render partial: 'reviews/index', locals: {product: @product}
 
 = link_to 'New Review', new_product_review_path(@product)
