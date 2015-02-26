@@ -1,13 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:edit, :update, :destroy]
   before_action :set_product
-
-  def index
-    @reviews = @product.reviews.all
-  end
-
-  def show
-  end
 
   def new
     @review = Review.new
@@ -22,11 +15,9 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to product_review_path(@product, @review), notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+        format.html { redirect_to product_path(@product), notice: 'Review was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -34,11 +25,9 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to product_review_path(@product, @review), notice: 'Review was successfully updated.' }
-        format.json { render :show, status: :ok, location: @review }
+        format.html { redirect_to product_path(@product), notice: 'Review was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,8 +35,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to product_reviews_url(@product), notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to products_url, notice: 'Review was successfully destroyed.' }
     end
   end
 
