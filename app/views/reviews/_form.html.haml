@@ -1,6 +1,6 @@
-= form_for [product, review] do |f|
+= form_for [@product, @review] do |f|
 
-  - if review.errors.any?
+  - if @review.errors.any?
     #error_explanation
       %h2
         = pluralize(@review.errors.count, "error")
