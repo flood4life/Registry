@@ -8,4 +8,6 @@
 
 = render partial: 'reviews/index', locals: {product: @product}
 
+= render partial: 'reviews/form', locals: {product: @product, review: @product.reviews.new}
+
 = link_to 'New Review', new_product_review_path(@product)
