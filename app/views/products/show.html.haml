@@ -1,0 +1,19 @@
+%p#notice
+  = notice
+
+%h1
+  = @product.name
+
+%h2
+  = @product.catalog.name
+
+%p
+  = @product.description
+
+%h3 Reviews
+- @product.reviews.each do |review|
+  %p
+    = review.message
+
+= link_to 'Edit', edit_product_path(@product)
+= link_to 'Back', products_path
