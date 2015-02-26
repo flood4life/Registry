@@ -4,21 +4,8 @@
 = link_to 'Edit', edit_product_path(@product)
 = link_to 'Back', products_path
 
-%h1
-  = @product.name
+= render 'product_information'
 
-%h2
-  = @product.catalog.name
-
-%p
-  = @product.description
-
-%h3 Reviews
-- @product.reviews.each do |review|
-  %p
-    = review.message
+= render 'reviews/reviews_for_product'
 
 = link_to 'New Review', new_product_review_path(@product)
-
-%br
-
