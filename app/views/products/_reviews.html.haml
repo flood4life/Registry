@@ -1,4 +1,6 @@
 %h3 Reviews
-- @product.reviews.each do |review|
-  %p
-    = review.message
+%table
+  - @product.reviews.each do |review|
+    %tr
+      %td= review.message
+      %td= link_to 'Edit', edit_product_review_path(@product, review)
