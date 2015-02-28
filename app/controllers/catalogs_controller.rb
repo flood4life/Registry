@@ -1,10 +1,10 @@
 class CatalogsController < ApplicationController
   before_action :set_catalog, only: [:show, :edit, :update, :destroy]
+  before_action :set_catalogs #TODO: specify actions
 
   # GET /catalogs
   # GET /catalogs.json
   def index
-    @catalogs = Catalog.all
   end
 
   # GET /catalogs/1
@@ -65,6 +65,10 @@ class CatalogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_catalog
       @catalog = Catalog.find(params[:id])
+    end
+
+    def set_catalogs
+      @catalogs = Catalog.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

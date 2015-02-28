@@ -1,0 +1,5 @@
+%table
+  %tbody
+    - @catalogs.each do |catalog|
+      %tr
+        %td= link_to catalog.name, catalog
