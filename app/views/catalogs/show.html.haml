@@ -1,7 +1,3 @@
 %h1= @catalog.name
 
-%table
-  %tbody
-    %tr
-      %td= render 'list'
-      %td= render @catalog.products
+= render partial: 'products/product_short', collection: @catalog.products
