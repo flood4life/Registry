@@ -1,6 +1,5 @@
 class CatalogsController < ApplicationController
   before_action :set_catalog, only: [:show, :edit, :update, :destroy]
-  before_action :set_catalogs #TODO: specify actions
 
   # GET /catalogs
   # GET /catalogs.json
