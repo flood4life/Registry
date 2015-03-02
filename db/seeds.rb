@@ -22,4 +22,6 @@ Product.find(1).reviews.create message: 'Language is quite unique.'
 Product.find(2).reviews.create message: 'Hilarious book.'
 Product.find(3).reviews.create message: 'Epic dialogs.'
 
+Admin.create email: 'admin@admin.org', password: '12345678'
 
+User.create email: 'user@user.org', password: '12345678'
