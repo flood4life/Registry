@@ -1,0 +1,6 @@
+= extends :application do
+  = replace :wrapper do
+    #left_menu
+      = render 'application/left_menu'
+    #content
+      = yield
