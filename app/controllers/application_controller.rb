@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :set_catalogs
 
+  def current_ability
+    @current_ability ||= current_admin ? AdminAbility.new(current_admin) : UserAbility.new(current_user)
+  end
+
   private
     def set_catalogs
       @catalogs = Catalog.all
