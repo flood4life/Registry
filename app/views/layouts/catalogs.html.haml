@@ -4,3 +4,5 @@
       = render 'application/left_menu'
     #content
       = yield
+    - if can? :approve, Review
+      = render 'layouts/pending_reviews'

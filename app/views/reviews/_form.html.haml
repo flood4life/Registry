@@ -9,6 +9,12 @@
       - @review.errors.full_messages do |message|
         %li= message
 
+  - unless user_signed_in? or admin_signed_in?
+    .field
+      = f.label :guest_name
+      %br
+      = f.text_field :guest_name
+
   .field
     = f.label :message
     %br

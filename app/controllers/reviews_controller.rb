@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_review, only: [:edit, :update, :destroy, :approve]
   before_action :set_product
 
   def new
@@ -11,7 +11,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user = current_user
+    if user_signed_in?
+      @review.user = current_user
+    else
+      @review.is_pending = true
+    end
+
     @product.reviews << @review
 
     respond_to do |format|
@@ -40,6 +45,12 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def approve
+    @review.is_pending = false
+    @review.save
+    redirect_to :back
+  end
+
   private
     def set_review
       @review = Review.find(params[:id])
@@ -50,6 +61,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:message)
+      params.require(:review).permit(:message, :guest_name)
     end
 end

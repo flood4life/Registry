@@ -1,0 +1,14 @@
+#pending_reviews
+  %h3 Pending Reviews
+  %table
+    %thead
+      %th Message
+      %th Name
+      %th{colspan: 2}
+    %tbody
+    - Review.pending.each do |review|
+      %tr
+        %td= review.message
+        %td= review.guest_name
+        %td= link_to 'Approve', approve_product_review_path(review.product, review)
+        %td= link_to 'Reject', product_review_path(review.product, review), method: :delete

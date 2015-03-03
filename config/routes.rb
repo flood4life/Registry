@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :catalogs
 
   resources :products do
-    resources :reviews, except: [:index, :show]
+    resources :reviews, except: [:index, :show] do
+      get 'approve', on: :member
+    end
   end
 
 end
