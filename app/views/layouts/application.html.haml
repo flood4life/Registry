@@ -6,6 +6,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    #wrapper
+    %header
+      = render 'layouts/navbar'
+    %main{role: 'main'}
       = area :wrapper do
         = yield
