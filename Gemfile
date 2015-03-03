@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'royce'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

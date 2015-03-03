@@ -25,3 +25,7 @@ Product.find(3).reviews.create message: 'Epic dialogs.'
 Admin.create email: 'admin@admin.org', password: '12345678'
 
 User.create email: 'user@user.org', password: '12345678'
+moderator = User.create email: 'moderator@user.org', password: '12345678'
+moderator.add_role :moderator
+approver = User.create email: 'approver@user.org', password: '12345678'
+approver.add_role :approver

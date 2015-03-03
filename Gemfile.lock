@@ -149,6 +149,8 @@ GEM
     remotipart (1.2.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    royce (1.0.6)
+      rails (>= 4.1.4)
     safe_yaml (1.0.4)
     sass (3.4.12)
     sass-rails (5.0.1)
@@ -204,6 +206,7 @@ DEPENDENCIES
   nestive
   rails (= 4.2.0)
   rails_admin (~> 0.6.6)
+  royce
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
