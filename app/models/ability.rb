@@ -10,9 +10,8 @@ class Ability
 
     unless user.new_record?
       can :create, Review
+      can :update, Review, user_id: user.id
     end
-
-
 
     # Define abilities for the passed in user here. For example:
     #

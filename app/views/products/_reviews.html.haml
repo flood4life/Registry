@@ -3,6 +3,6 @@
   - @product.reviews.each do |review|
     %tr
       %td= review.message
-      %td
-        - if can? :update, review
-          = link_to 'Edit', edit_product_review_path(@product, review)
+      - if can? :update, review
+        %td= link_to 'Edit', edit_product_review_path(@product, review)
+        %td= link_to 'Delete', product_review_path(@product, review), method: :delete

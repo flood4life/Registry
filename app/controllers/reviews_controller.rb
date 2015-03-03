@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @review.user = current_user
     @product.reviews << @review
 
     respond_to do |format|
@@ -35,7 +36,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to product_path(@review.product), notice: 'Review was successfully destroyed.' }
     end
   end
 
