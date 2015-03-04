@@ -1,8 +1,4 @@
 = extends :application do
   = replace :wrapper do
-    #left_menu
-      = render 'application/left_menu'
-    #content
+    .col-md-12#content
       = yield
-    - if can? :approve, Review
-      = render 'layouts/pending_reviews'

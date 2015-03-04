@@ -1,5 +1,5 @@
 %h3 Reviews
-%table
+%table.table.table-condensed
   - @product.reviews.approved.each do |review|
     %tr
       %td= review.message

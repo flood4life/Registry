@@ -1,11 +1,21 @@
-#navbar
-  - if user_signed_in?
-    = link_to 'Sign out', destroy_user_session_path, method: 'delete'
-  - elsif admin_signed_in?
-    = link_to 'Sign out', destroy_admin_session_path, method: 'delete'
-  - else
-    = link_to 'Sign in', new_user_session_path
-  - unless notice.blank?
-    %p#notice= notice
-  - if admin_signed_in?
-    %h1 ADMIN MODE
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      = link_to 'Registry', catalogs_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li{class: ('active' unless @catalog)}
+          = link_to 'All products', catalogs_path
+        - @catalogs.each do |catalog|
+          %li{class: ('active' if catalog == @catalog)}
+            = link_to catalog.name, catalog_path(catalog)
+      %ul.nav.navbar-nav.navbar-right
+        - if can? :approve, Review
+          %li= link_to 'Pending reviews', '#'
+        %li
+          - if user_signed_in?
+            = link_to 'Sign out', destroy_user_session_path, method: 'delete'
+          - elsif admin_signed_in?
+            = link_to 'Sign out', destroy_admin_session_path, method: 'delete'
+          - else
+            = link_to 'Sign in', new_user_session_path

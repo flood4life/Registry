@@ -1,3 +1,2 @@
-%h1= @catalog.name
-
-= render partial: 'products/product_short', collection: @catalog.products
+.row
+  = render partial: 'products/product_thumbnail', collection: @catalog.products
