@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy, :approve]
-  before_action :set_product
+  before_action :set_product, except: [:pending, :approve]
+  authorize_resource 
 
   def new
     @review = Review.new
@@ -39,9 +40,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to product_path(@review.product), notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to :back }
     end
   end
 
@@ -49,6 +51,10 @@ class ReviewsController < ApplicationController
     @review.is_pending = false
     @review.save
     redirect_to :back
+  end
+
+  def pending
+    @reviews = Review.pending
   end
 
   private

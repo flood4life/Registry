@@ -4,8 +4,9 @@ class UserAbility
   def initialize(user)
     user ||= User.new
 
+    can :create, Review
+
     unless user.new_record?
-      can :create, Review
       can :update, Review, user_id: user.id
       if user.moderator?
         moderator
@@ -23,5 +24,6 @@ class UserAbility
 
     def approver
       can :approve, Review
+      can :pending, Review
     end
 end

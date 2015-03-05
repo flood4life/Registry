@@ -7,12 +7,15 @@ Rails.application.routes.draw do
 
   root :to => redirect('catalogs')
 
-  resources :catalogs
+  resources :catalogs, only: [:index, :show]
 
-  resources :products do
-    resources :reviews, except: [:index, :show] do
-      get 'approve', on: :member
-    end
+  resources :products, only: [:show] do
+    resources :reviews, except: [:index, :show]
+  end
+
+  resources :reviews, only: [] do
+    get 'pending', on: :collection
+    get 'approve', on: :member
   end
 
 end
