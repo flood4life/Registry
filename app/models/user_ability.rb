@@ -25,5 +25,6 @@ class UserAbility
     def approver
       can :approve, Review
       can :pending, Review
+      can :destroy, Review, is_pending: true
     end
 end
