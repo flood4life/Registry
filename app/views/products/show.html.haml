@@ -2,7 +2,7 @@
 
 %h2 Reviews
 .row
-  = render partial: 'reviews/review', collection: @product.reviews
+  = render partial: 'reviews/review', collection: @product.reviews.approved
 
 %h2 Leave a review
 .row
