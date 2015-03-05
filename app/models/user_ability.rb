@@ -7,7 +7,7 @@ class UserAbility
     can :create, Review
 
     unless user.new_record?
-      can :update, Review, user_id: user.id
+      can :manage, Review, user_id: user.id
       if user.moderator?
         moderator
       end
@@ -19,7 +19,7 @@ class UserAbility
 
   private
     def moderator
-      can :update, Review
+      can :manage, Review
     end
 
     def approver

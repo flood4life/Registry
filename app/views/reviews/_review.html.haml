@@ -1,0 +1,22 @@
+.col-md-6
+  .panel.panel-default
+    .panel-heading
+      .row
+        .col-md-6
+          %h3.panel-title
+            %span.text-muted
+              by
+              - if review.user.nil?
+                %em guest
+            = review.user.nil? ? review.guest_name : review.user.email
+        .col-md-6
+          - if can? :manage, review
+            %span.pull-right#manage_icons
+              %a{href: edit_product_review_path(review.product, review), title: 'Edit'}
+                %span.glyphicon.glyphicon-edit
+              %a{href: product_review_path(review.product, review), title: 'Delete', 'data-method'.to_sym => :delete}
+                %span.glyphicon.glyphicon-remove
+          - else
+            %span.glyphicon
+    .panel-body
+      = review.message

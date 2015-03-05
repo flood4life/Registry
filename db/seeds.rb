@@ -18,9 +18,9 @@ movies.products.create name: 'Pulp Fiction', description: 'Criminal, Comedy.'
 movies.products.create name: 'Pulp Fiction', description: 'Second Fiction.'
 
 
-Product.find(1).reviews.create message: 'Language is quite unique.'
-Product.find(2).reviews.create message: 'Hilarious book.'
-Product.find(3).reviews.create message: 'Epic dialogs.'
+Product.find(1).reviews.create message: 'Language is quite unique.', guest_name: 'UFO'
+Product.find(2).reviews.create message: 'Hilarious book.', guest_name: 'UFO'
+Product.find(3).reviews.create message: 'Epic dialogs.', guest_name: 'UFO'
 
 Admin.create email: 'admin@admin.org', password: '12345678'
 

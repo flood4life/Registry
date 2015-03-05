@@ -1,26 +1,27 @@
-= form_for [@product, @review] do |f|
-  .form-group
-    - if @review.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@review.errors.count, "error")
-          prohibited this review from being saved:
-        %ul
-        - @review.errors.full_messages do |message|
-          %li= message
-  .row
-    .form-group.col-md-6
-      - unless user_signed_in? or admin_signed_in?
+.col-md-12
+  = form_for [@product, @review] do |f|
+    .form-group
+      - if @review.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@review.errors.count, "error")
+            prohibited this review from being saved:
+          %ul
+          - @review.errors.full_messages do |message|
+            %li= message
+    .row
+      .form-group.col-md-6
+        - unless user_signed_in? or admin_signed_in?
+          .field
+            = f.label :guest_name
+            %br
+            = f.text_field :guest_name, class: 'form-control'
+    .row
+      .form-group.col-md-6
         .field
-          = f.label :guest_name
+          = f.label :message
           %br
-          = f.text_field :guest_name, class: 'form-control'
-  .row
-    .form-group.col-md-6
-      .field
-        = f.label :message
-        %br
-        = f.text_area :message, class: 'form-control'
-  .form-group
-    .actions
-      = f.submit class: 'btn btn-primary'
+          = f.text_area :message, class: 'form-control'
+    .form-group
+      .actions
+        = f.submit class: 'btn btn-primary'
