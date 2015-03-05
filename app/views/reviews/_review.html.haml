@@ -2,14 +2,14 @@
   .panel.panel-default
     .panel-heading
       .row
-        .col-xs-6
-          %h3.panel-title
+        .col-xs-6.equal-height#vertical_hack
+          %span.panel-title
             %span.text-muted
               by
               - if review.user.nil?
                 %em guest
             = review.user.nil? ? review.guest_name : review.user.email
-        .col-xs-6
+        .col-xs-6.equal-height
           - if can? :manage, review
             %span.pull-right
               = link_to 'Edit', edit_product_review_path(review.product, review), class: 'btn btn-info'
