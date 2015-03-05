@@ -1,6 +1,6 @@
 .col-md-3
-  .thumbnail
+  %a.thumbnail{href: product_path(product_thumbnail)}
     .caption
-      %h3= link_to product_thumbnail.name, product_path(product_thumbnail)
+      %h3= product_thumbnail.name
       %p.text-muted= product_thumbnail.catalog.name
       %p= product_thumbnail.description
