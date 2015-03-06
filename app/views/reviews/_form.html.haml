@@ -1,24 +1,6 @@
-.col-md-12
-  = form_for [@product, @review] do |f|
-    .form-group
-      - if @review.errors.any?
-        #error_explanation
-          %h2
-            = pluralize(@review.errors.count, "error")
-            prohibited this review from being saved:
-          %ul
-          - @review.errors.full_messages do |message|
-            %li= message
-    - unless user_signed_in? or admin_signed_in?
-      .row
-        .form-group.col-md-6
-          = f.label :guest_name
-          %br
-          = f.text_field :guest_name, class: 'form-control'
-    .row
-      .form-group.col-md-6
-        = f.label :message
-        %br
-        = f.text_area :message, class: 'form-control'
-    .form-group
-      = f.submit class: 'btn btn-primary'
+.col-xs-6
+  = simple_form_for [@product, @review], url: @review.persisted? ? product_review_path(@product, @review) : product_reviews_path(@product) do |f|
+    - unless user_signed_in?
+      = f.input :guest_name, placeholder: 'Guest name', label: false
+    = f.input :message, placeholder: 'Message', label: false
+    = f.button :submit, (@review.persisted? ? 'Update review' : 'Leave review'), class: 'btn btn-info'
