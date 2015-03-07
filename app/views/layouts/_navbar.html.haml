@@ -16,10 +16,10 @@
               %span.glyphicon.glyphicon-exclamation-sign
               Pending reviews
         - if user_signed_in?
-          %li.navbar-text= current_user.email
+          %li.navbar-text#navbar-text-fix= current_user.email
           %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
         - elsif admin_signed_in?
-          %li.navbar-text= current_admin.email
+          %li.navbar-text#navbar-text-fix= current_admin.email
           %li= link_to 'Sign out', destroy_admin_session_path, method: 'delete'
         - else
           %li= link_to 'Sign in', new_user_session_path

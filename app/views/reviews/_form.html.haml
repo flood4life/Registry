@@ -3,4 +3,4 @@
     - unless user_signed_in?
       = f.input :guest_name, placeholder: 'Guest name', label: false
     = f.input :message, placeholder: 'Message', label: false
-    = f.button :submit, (@review.persisted? ? 'Update review' : 'Leave review'), class: 'btn btn-info'
+    = f.button :submit, (@review.persisted? ? 'Update review' : 'Leave review'), class: 'btn btn-primary'

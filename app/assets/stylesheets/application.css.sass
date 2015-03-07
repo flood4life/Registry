@@ -11,11 +11,15 @@
  * file per style scope.
  *
  */
-
+@import 'bootswatch/flatly/variables'
 @import "bootstrap-sprockets"
 @import "bootstrap"
+@import "bootswatch/flatly/bootswatch"
 @import "products"
 @import "reviews"
 
 #pending_reviews_link
   color: $alert-warning-text
+
+#navbar-text-fix
+  color: $navbar-default-link-color

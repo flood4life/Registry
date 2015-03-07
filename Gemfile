@@ -42,6 +42,7 @@ gem 'cancancan', '~> 1.10'
 gem 'royce'
 
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootswatch-rails'
 
 gem 'simple_form'
 
