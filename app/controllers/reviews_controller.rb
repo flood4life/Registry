@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
       if @review.save
         format.html { redirect_to product_path(@product), flash: {is_pending: !@review.user.present?} }
       else
-        format.html { render :new }
+        format.html { render 'products/show' }
       end
     end
   end
