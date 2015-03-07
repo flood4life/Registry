@@ -4,10 +4,12 @@ class UserAbility
   def initialize(user)
     user ||= User.new
 
+    alias_action :create, :read, :update, :destroy, :to => :crud
+
     can :create, Review
 
     unless user.new_record?
-      can :manage, Review, user_id: user.id
+      can :crud, Review, user_id: user.id
       if user.moderator?
         moderator
       end
@@ -19,7 +21,7 @@ class UserAbility
 
   private
     def moderator
-      can :manage, Review
+      can :crud, Review
     end
 
     def approver
