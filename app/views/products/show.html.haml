@@ -1,18 +1,18 @@
 = render @product
 
 .panel
-  .panel-heading
+  .panel-heading.no-padding
     .panel-title
       %h3 Reviews
-  .panel-body
+  .panel-body.no-padding
     .row
       = render partial: 'reviews/review', collection: @product.reviews.approved
 
 .panel
-  .panel-heading
+  .panel-heading.no-padding
     .panel-title
       %h3 Leave a review
-  .panel-body
+  .panel-body.no-padding
     - if flash[:is_pending]
       .row
         .col-xs-6
