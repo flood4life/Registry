@@ -1,16 +1,21 @@
-%h2
-  Editing review by
-  %span.text-muted
-    - if current_user == @review.user
-      you
-    - elsif @review.user.present?
-      = @review.user.email
-    - else
-      guest
-      = @review.guest_name
 
-  for
-  = @review.product.name
 
-.row
-  = render 'form'
+.panel
+  .panel-heading
+    .panel-title
+      %h2
+        Editing review by
+        %span.text-muted
+          - if current_user == @review.user
+            you
+          - elsif @review.user.present?
+            = @review.user.email
+          - else
+            guest
+            = @review.guest_name
+
+        for
+        = @review.product.name
+  .panel-body
+    .row
+      = render 'form'

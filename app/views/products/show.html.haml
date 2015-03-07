@@ -1,9 +1,17 @@
 = render @product
 
-%h2 Reviews
-.row
-  = render partial: 'reviews/review', collection: @product.reviews.approved
+.panel
+  .panel-heading
+    .panel-title
+      %h3 Reviews
+  .panel-body
+    .row
+      = render partial: 'reviews/review', collection: @product.reviews.approved
 
-%h2 Leave a review
-.row
-  = render partial: 'reviews/form'
+.panel
+  .panel-heading
+    .panel-title
+      %h3 Leave a review
+  .panel-body
+    .row
+      = render partial: 'reviews/form'
