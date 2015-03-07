@@ -13,5 +13,12 @@
     .panel-title
       %h3 Leave a review
   .panel-body
+    - if flash[:is_pending]
+      .row
+        .col-xs-6
+          .alert.alert-info.fade.in
+            %a.close{href: '#', 'data-dismiss'.to_sym => 'alert'}
+              &times;
+            Your review is pending for approval!
     .row
       = render partial: 'reviews/form'

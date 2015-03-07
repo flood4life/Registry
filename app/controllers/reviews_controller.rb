@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to product_path(@product), notice: 'Review was successfully created.' }
+        format.html { redirect_to product_path(@product), flash: {is_pending: !@review.user.present?} }
       else
         format.html { render :new }
       end

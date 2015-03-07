@@ -19,7 +19,9 @@
 @import "reviews"
 
 #pending_reviews_link
-  color: $alert-warning-text
+  color: $btn-warning-bg
+  &:hover
+    color: darken($btn-warning-bg, 10)
 
 #navbar-text-fix
   color: $navbar-default-link-color
