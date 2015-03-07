@@ -1,0 +1,16 @@
+.col-xs-6.col-xs-offset-3
+  .jumbotron
+    .row
+      %h2 Log in
+
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.input :email, placeholder: 'E-mail', label: false , autofocus: true
+        = f.input :password, placeholder: 'Password', label: false, autocomplete: 'off'
+
+        -  if devise_mapping.rememberable?
+          = f.input :remember_me, as: :boolean
+
+        .col-xs-6
+          = f.button :submit, 'Log in', class: 'btn btn-primary'
+        .col-xs-6
+          = render "devise/shared/links"
