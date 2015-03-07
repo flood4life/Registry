@@ -10,7 +10,7 @@
         -  if devise_mapping.rememberable?
           = f.input :remember_me, as: :boolean
 
-        .col-xs-6
+        .col-xs-6.no-padding
           = f.button :submit, 'Log in', class: 'btn btn-primary'
-        .col-xs-6
+        .col-xs-6.no-padding.text-right
           = render "devise/shared/links"
