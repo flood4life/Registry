@@ -1,0 +1,12 @@
+.col-xs-6.col-xs-offset-3
+  .jumbotron
+    .row
+      %h2 Reset password
+
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f|
+        = f.input :email, placeholder: 'Your E-mail', label: false , autofocus: true
+
+        .col-xs-6.no-padding
+          = f.button :submit, 'Send me password reset instructions', class: 'btn btn-primary'
+        .col-xs-6.no-padding.text-right
+          = render "devise/shared/links"

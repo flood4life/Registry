@@ -1,0 +1,14 @@
+.col-xs-6.col-xs-offset-3
+  .jumbotron
+    .row
+      %h2 Sign up
+
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.input :email, placeholder: 'E-mail', label: false , autofocus: true
+        = f.input :password, placeholder: 'Password', label: false, autocomplete: 'off'
+        = f.input :password_confirmation, placeholder: 'Confirm password', label: false, autocomplete: 'off'
+
+        .col-xs-6.no-padding
+          = f.button :submit, 'Sign up', class: 'btn btn-primary'
+        .col-xs-6.no-padding.text-right
+          = render "devise/shared/links"
