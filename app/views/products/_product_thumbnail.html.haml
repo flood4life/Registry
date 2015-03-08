@@ -1,6 +1,8 @@
 .col-md-3
-  %a.thumbnail.equal-height{href: product_path(product_thumbnail)}
+  .thumbnail.equal-height
     .caption
-      %h3= product_thumbnail.name
-      %p.text-muted= product_thumbnail.catalog.name
+      %a{href: product_path(product_thumbnail)}
+        %h3= product_thumbnail.name
+      %a{href: catalog_path(product_thumbnail.catalog)}
+        %p.text-muted= product_thumbnail.catalog.name
       %p= product_thumbnail.description
