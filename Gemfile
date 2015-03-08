@@ -10,6 +10,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -46,8 +47,8 @@ gem 'bootswatch-rails'
 
 gem 'simple_form'
 
-gem 'rails_12factor', group: :production
-
+gem 'puma'
+gem 'rack-timeout'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
