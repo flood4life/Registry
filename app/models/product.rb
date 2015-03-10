@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   after_create :remake_slug
 
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :slug_candidates, use: :scoped, :scope => :catalog_id
 
   def slug_candidates
     [

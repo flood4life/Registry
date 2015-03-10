@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310061919) do
+ActiveRecord::Schema.define(version: 20150310161550) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",              default: "", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150310061919) do
   end
 
   add_index "products", ["catalog_id"], name: "index_products_on_catalog_id"
-  add_index "products", ["slug"], name: "index_products_on_slug", unique: true
+  add_index "products", ["slug"], name: "index_products_on_slug"
 
   create_table "reviews", force: :cascade do |t|
     t.text     "message"

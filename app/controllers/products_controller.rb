@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def show
-    @product = Product.friendly.find(params[:id])
-    @catalog = @product.catalog
+    @catalog = Catalog.friendly.find(params[:catalog_id])
+    @product = @catalog.products.friendly.find(params[:id])
     @review = Review.new
   end
 end
