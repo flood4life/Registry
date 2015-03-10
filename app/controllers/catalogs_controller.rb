@@ -3,11 +3,6 @@ class CatalogsController < ApplicationController
   end
 
   def show
-    @catalog = Catalog.find(params[:id])
+    @catalog = Catalog.friendly.find(params[:id])
   end
-
-  private
-    def set_catalog
-      @catalog = Catalog.find(params[:id])
-    end
 end

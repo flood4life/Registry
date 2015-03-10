@@ -1,5 +1,5 @@
 .col-xs-6
-  = simple_form_for [@product, @review], url: @review.persisted? ? product_review_path(@product, @review) : product_reviews_path(@product) do |f|
+  = simple_form_for [@product.catalog, @product, @review], url: @review.persisted? ? catalog_product_review_path(@product.catalog, @product, @review) : catalog_product_reviews_path(@product.catalog, @product) do |f|
     = f.error_notification
     - unless user_signed_in?
       = f.input :guest_name, placeholder: 'Guest name', label: false

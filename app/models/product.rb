@@ -2,5 +2,20 @@ class Product < ActiveRecord::Base
   belongs_to :catalog
   has_many :reviews
 
-  validates :name, uniqueness: {scope: :catalog_id, message: "Name should be unique in category"}
+  after_create :remake_slug
+
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+        :name,
+        [:name, :id]
+    ]
+  end
+
+  def remake_slug
+    self.update_attribute(:slug, nil)
+    self.save!
+  end
 end

@@ -11,4 +11,4 @@
         %td= review.message
         %td= review.guest_name
         %td= link_to 'Approve', approve_product_review_path(review.product, review)
-        %td= link_to 'Reject', product_review_path(review.product, review), method: :delete
+        %td= link_to 'Reject', catalog_product_review_path(@review.product.catalog, review.product, review), method: :delete

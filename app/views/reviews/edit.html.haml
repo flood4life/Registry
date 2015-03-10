@@ -13,7 +13,7 @@
             = @review.guest_name
 
         for
-        = link_to @review.product.name, product_path(@review.product)
+        = link_to @review.product.name, catalog_product_path(@review.product.catalog, @review.product)
   .panel-body
     .row
       = render 'form'

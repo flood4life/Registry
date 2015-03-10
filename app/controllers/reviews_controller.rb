@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to product_path(@product), flash: {is_pending: !@review.user.present?} }
+        format.html { redirect_to catalog_product_path(@product.catalog, @product), flash: {is_pending: !@review.user.present?} }
       else
         format.html { render 'products/show' }
       end
@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to product_path(@product), notice: 'Review was successfully updated.' }
+        format.html { redirect_to catalog_product_path(@product.catalog, @product), notice: 'Review was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -63,7 +63,7 @@ class ReviewsController < ApplicationController
     end
 
     def set_product
-      @product = Product.find params[:product_id]
+      @product = Product.friendly.find params[:product_id]
     end
 
     def review_params

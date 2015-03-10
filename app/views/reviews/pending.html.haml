@@ -12,4 +12,4 @@
         %td= review.guest_name
         %td= review.message
         %td= link_to 'Approve', approve_review_path(review), class: 'btn btn-success'
-        %td= link_to 'Reject', product_review_path(review.product, review), method: :delete, class: 'btn btn-danger'
+        %td= link_to 'Reject', catalog_product_review_path(review.product.catalog, review.product, review), method: :delete, class: 'btn btn-danger'

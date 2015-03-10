@@ -14,6 +14,7 @@ books.products.create name: 'Clockwork Orange', description: 'Anti-utopia.'
 books.products.create name: 'Wee Free Men', description: 'Fantasy, Comedy.'
 
 movies.products.create name: 'Clockwork Orange', description: 'Anti-utopia.'
+
 movies.products.create name: 'Pulp Fiction', description: 'Criminal, Comedy.'
 movies.products.create name: 'Pulp Fiction', description: 'Second Fiction.'
 
